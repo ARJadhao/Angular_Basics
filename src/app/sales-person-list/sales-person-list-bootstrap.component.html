@@ -1,0 +1,40 @@
+
+<!--
+<p>sales-person-list works!</p>
+
+<p>a quick test</p> 
+
+<p>
+    {{salesPersonList[0].fName}}
+    {{salesPersonList[0].lName}}
+
+</p>
+
+-->
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>FName</th>
+            <th>LName</th>
+            <th>Email</th>
+            <th>Sales Count</th>
+            <th>Met Quota?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempSPerson of salesPersonList">
+            <td>{{tempSPerson.fName}}</td>
+            <td>{{tempSPerson.lName}}</td>
+            <td>{{tempSPerson.email}}</td>
+            <td>{{tempSPerson.salesVolume | currency:'INR'}}</td>
+            <td>
+                <div *ngIf = "tempSPerson.salesVolume >= 100000; else myElseBlock">Yes</div>
+                <ng-template #myElseBlock>No</ng-template>
+                
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>

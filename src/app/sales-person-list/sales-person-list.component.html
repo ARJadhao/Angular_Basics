@@ -1,0 +1,40 @@
+
+<!--
+<p>sales-person-list works!</p>
+
+<p>a quick test</p> 
+
+<p>
+    {{salesPersonList[0].fName}}
+    {{salesPersonList[0].lName}}
+
+</p>
+
+-->
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>FName</th>
+            <th>LName</th>
+            <th>Email</th>
+            <th>SalesCount</th>
+            <th>MetQuota?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempSPerson of salesPersonList">
+            <td>{{tempSPerson.fName}}</td>
+            <td>{{tempSPerson.lName}}</td>
+            <td>{{tempSPerson.email}}</td>
+            <td>{{tempSPerson.salesVolume}}</td>
+            <td>
+                <div *ngif = "tempSPerson.salesVolume >= 1000; else myElseBlock">Yes</div>
+                <ng-template #myElseBlock>No</ng-template>
+                
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
